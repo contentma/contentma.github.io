@@ -1,0 +1,551 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>content ma</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="content ma — Виктория, контент-креатор из Москвы: reels, фото, видео, свадьбы и лайв-контент для брендов.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Ms+Madi&family=Marck+Script&display=swap">
+<style>
+/* Layout: an atelier catalogue. Warm paper page; each chapter sits in a thick charcoal frame and splits
+   into a paper column of typewriter text, a black-and-white photo and a deep red block. A tilted
+   polaroid and a thin red signature are the hand-made touches. Deliberately single-theme. */
+:root {
+  color-scheme: light;
+  --paper: #efeee9;
+  --card: #f7f6f2;
+  --frame: #262624;
+  --ink: #1d1d1b;
+  --grey: #6f6d68;
+  --line: #c9c7c0;
+  --red: #c4141c;
+  --mono: "IBM Plex Mono", "Courier New", ui-monospace, monospace;
+  --sign: "Ms Madi", "Marck Script", "Snell Roundhand", cursive;
+  --sign-ru: "Marck Script", "Snell Roundhand", cursive;
+  --gl: max(16px, env(safe-area-inset-left, 0px));
+  --gr: max(16px, env(safe-area-inset-right, 0px));
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--paper); color: var(--ink); font: 400 15px/1.6 var(--mono); -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--paper); }
+a { color: inherit; }
+img, video { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; }
+:focus-visible { outline: 2px solid var(--red); outline-offset: 3px; }
+.wrap { max-width: 1280px; margin: 0 auto; padding-left: var(--gl); padding-right: var(--gr); }
+.tiny { font-size: 11px; line-height: 1.4; letter-spacing: .06em; text-transform: uppercase; }
+.muted { color: var(--grey); }
+.sign { font-family: var(--sign); font-weight: 400; color: var(--red); line-height: .8; letter-spacing: 0; }
+.sign-ru { font-family: var(--sign-ru); color: var(--red); line-height: 1; }
+.bw { filter: grayscale(1) contrast(1.05); }
+.tab { display: inline-block; border: 1px solid currentColor; padding: 3px 8px 2px; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; text-decoration: none; white-space: nowrap; background: transparent; cursor: pointer; }
+.tab.lc { text-transform: none; letter-spacing: .02em; font-size: 12px; }
+.tab:hover { background: var(--frame); color: var(--card); }
+.bar { display: block; width: 100%; text-align: center; padding: 11px 16px; background: var(--frame); color: var(--card); text-decoration: none; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; border: 1px solid var(--frame); cursor: pointer; }
+.bar:hover { background: var(--red); border-color: var(--red); }
+.bar.red { background: var(--red); border-color: var(--red); }
+.bar.red:hover { background: var(--frame); border-color: var(--frame); }
+.bar.ghost { background: transparent; color: inherit; border-color: currentColor; }
+.bar.ghost:hover { background: var(--frame); color: var(--card); }
+
+/* header */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(239,238,233,.94); backdrop-filter: blur(8px); }
+.top .wrap { display: flex; align-items: center; gap: 18px; height: 56px; }
+.logo { font-size: 15px; font-weight: 500; text-decoration: none; letter-spacing: -.01em; }
+.top nav { display: flex; gap: 6px; margin-left: auto; flex-wrap: wrap; }
+
+/* frames */
+.frame { background: var(--frame); padding: clamp(8px, 1.1vw, 14px); margin-top: clamp(20px, 3vw, 36px); }
+.frame-in { display: grid; gap: clamp(8px, 1.1vw, 14px); }
+section { scroll-margin-top: calc(64px + env(safe-area-inset-top, 0px)); }
+
+/* hero: paper | photo | red */
+.hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr) minmax(0, .7fr); min-height: min(78vh, 640px); }
+.hero .paper { background: var(--card); padding: 0 clamp(14px, 2vw, 26px) clamp(14px, 2vw, 22px); display: flex; flex-direction: column; min-width: 0; }
+.hero .tabs { display: flex; gap: 4px; flex-wrap: wrap; padding-top: 10px; }
+.hero h1 { font-weight: 400; font-size: clamp(54px, 7.6vw, 108px); line-height: .95; letter-spacing: -.05em; margin: clamp(28px, 5vw, 70px) 0 6px; }
+.hero .paren { font-size: clamp(15px, 1.6vw, 20px); margin: 0; }
+.hero .lede { margin: auto 0 18px; padding-top: 28px; font-size: 14px; line-height: 1.6; max-width: 34ch; }
+.hero .btns { display: grid; gap: 8px; }
+.hero .photo { position: relative; overflow: hidden; min-width: 0; }
+.hero .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; animation: settle 1.4s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes settle { from { transform: scale(1.08); } }
+.hero .red { background: var(--red); color: #fff; position: relative; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(14px, 1.6vw, 20px); min-width: 0; }
+.hero .red p { margin: 0; font-size: 13px; line-height: 1.45; }
+.polaroid { position: absolute; background: #fbfaf7; padding: 8px 8px 34px; box-shadow: 0 10px 28px rgba(0,0,0,.28); }
+.polaroid img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.polaroid .sign { position: absolute; right: 10px; bottom: 4px; font-size: 26px; white-space: nowrap; }
+.hero .polaroid { width: 72%; top: -16px; right: -18px; transform: rotate(6deg); animation: drop .9s .5s cubic-bezier(.2,.8,.2,1) both; }
+@keyframes drop { from { transform: translateY(-24px) rotate(14deg); } }
+.hero .red .rec::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #fff; margin-right: 7px; animation: blink 1.6s steps(1) infinite; }
+@keyframes blink { 50% { opacity: .25; } }
+
+/* second frame: red stats | paper with bw photo */
+.duo { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.statblock { background: var(--red); color: #fff; padding: clamp(18px, 2.4vw, 30px); display: grid; grid-template-columns: 1fr 1fr; gap: 22px 18px; align-content: space-between; min-width: 0; }
+.statblock div b { display: block; font-weight: 300; font-size: clamp(44px, 5.6vw, 76px); line-height: .95; letter-spacing: -.05em; }
+.statblock .wide { grid-column: 1 / -1; }
+.statblock .sign { color: #fff; font-size: clamp(44px, 5vw, 70px); }
+.svc { background: var(--card); padding: clamp(14px, 2vw, 24px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); gap: 18px; min-width: 0; }
+.svc .photo-sm { position: relative; }
+.svc .photo-sm img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+.svc .photo-sm .sign { position: absolute; right: -6px; bottom: -22px; font-size: clamp(40px, 4.4vw, 60px); transform: rotate(-6deg); }
+.roles { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); align-self: start; }
+.roles a { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.roles a b { font-weight: 400; font-size: clamp(20px, 2.2vw, 28px); letter-spacing: -.03em; }
+.roles a:hover b { color: var(--red); }
+.svc .note { grid-column: 1 / -1; margin: 6px 0 0; font-size: 13px; max-width: 46ch; }
+
+/* section heads on paper */
+.head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 18px; margin: clamp(56px, 7vw, 96px) 0 20px; }
+h2 { font-weight: 400; font-size: clamp(44px, 6.4vw, 92px); line-height: .95; letter-spacing: -.05em; margin: 0; }
+.head .sign { font-size: clamp(44px, 5vw, 72px); transform: rotate(-4deg); }
+.head .tiny { margin-left: auto; }
+
+/* projects */
+.filters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 28px; }
+.filters .tab { padding: 6px 10px 5px; }
+.filters .tab sup { font-size: 9px; margin-left: 3px; }
+.filters .tab[aria-pressed="true"] { background: var(--red); border-color: var(--red); color: #fff; }
+.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 34px 22px; }
+.card { text-decoration: none; display: grid; gap: 10px; min-width: 0; align-content: start; }
+.card .pic { background: var(--frame); padding: 8px; transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+.card .pic img, .card .pic video { display: block; width: 100%; aspect-ratio: 4/5; object-fit: cover; transition: filter .4s; background: #111; }
+.card .pic { position: relative; }
+.card .pic .play { position: absolute; left: 16px; top: 16px; background: var(--red); color: #fff; padding: 2px 7px; font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+.card:nth-child(4n+2) .pic img, .card:nth-child(4n+3) .pic img { filter: grayscale(1); }
+#feat .card .pic img { filter: none; }
+.card:hover .pic { transform: rotate(-1deg); }
+.card:hover .pic img { filter: none; }
+.card .meta { display: flex; justify-content: space-between; gap: 10px; }
+.card h3 { font-weight: 400; font-size: 19px; line-height: 1.2; letter-spacing: -.02em; margin: 0; text-wrap: balance; }
+.card h3::before { content: "("; color: var(--grey); } .card h3::after { content: ")"; color: var(--grey); }
+.card .sub { font-size: 13px; color: var(--red); margin-top: -6px; }
+.more { display: flex; justify-content: center; margin-top: 40px; }
+.subhead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin: 44px 0 18px; }
+.subhead:first-of-type { margin-top: 8px; }
+.feat { columns: 3 280px; column-gap: 16px; }
+.feat a { display: block; break-inside: avoid; margin-bottom: 16px; background: var(--frame); padding: 8px; position: relative; text-decoration: none; transition: transform .3s cubic-bezier(.2,.8,.2,1); }
+.feat a img { width: 100%; display: block; }
+.feat a span { position: absolute; left: 16px; bottom: 16px; background: var(--card); color: var(--ink); padding: 2px 8px; font-size: 11px; letter-spacing: .02em; opacity: 0; transform: translateY(6px); transition: opacity .2s, transform .2s; }
+.feat a:hover { transform: rotate(-.6deg); }
+.feat a:hover span, .feat a:focus-visible span { opacity: 1; transform: none; }
+@media (hover: none) { .feat a span { opacity: 1; transform: none; } }
+.more .bar { width: auto; padding-inline: 34px; }
+
+/* about: dark frame "the art and the artist" */
+.about { background: var(--frame); color: var(--card); padding: clamp(18px, 3vw, 40px); display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 28px clamp(24px, 4vw, 56px); position: relative; }
+.about h2 { color: var(--card); }
+.about .sign { color: var(--card); font-size: clamp(34px, 3.6vw, 52px); display: block; margin: 0 0 18px 6%; transform: rotate(-4deg); }
+.about h2 { font-weight: 500; }
+.about p { margin: 0 0 14px; font-size: 14px; max-width: 44ch; }
+.about .kv { margin-top: 22px; border-top: 1px solid #4a4945; }
+.about .kv div { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 10px; padding: 10px 0; border-bottom: 1px solid #4a4945; }
+.about dt { color: #a9a7a0; font-size: 11px; letter-spacing: .06em; text-transform: uppercase; padding-top: 3px; }
+.about dd { margin: 0; min-width: 0; font-size: 13px; }
+.tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.tags span { border: 1px solid #77756f; padding: 0 7px 1px; font-size: 12px; }
+.tags .new { background: var(--red); border-color: var(--red); color: #fff; }
+.about .pics { position: relative; min-height: 420px; }
+.about .pics .main { position: absolute; right: 0; top: 0; width: 76%; height: 100%; object-fit: cover; }
+.about .pics .polaroid { width: 46%; left: 0; bottom: 8%; transform: rotate(-6deg); }
+.about .pics .polaroid .sign { font-size: 26px; color: var(--red); margin: 0; display: block; transform: none; position: absolute; }
+.film { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(8px, 1.1vw, 14px); background: var(--frame); padding: 0 clamp(8px, 1.1vw, 14px) clamp(8px, 1.1vw, 14px); }
+.film img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+.film img:nth-child(odd) { filter: grayscale(1); }
+
+/* prices */
+.prices { grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); align-items: stretch; }
+.price { padding: clamp(18px, 2.4vw, 30px); min-width: 0; }
+.price.paper { background: var(--card); }
+.price.red { background: var(--red); color: #fff; }
+.price h3 { font-weight: 400; font-size: clamp(26px, 3vw, 40px); line-height: 1; letter-spacing: -.04em; margin: 0 0 4px; }
+.bracket { display: block; font-size: 14px; letter-spacing: .02em; margin: 2px 0 18px; color: var(--red); }
+.price.red .bracket { color: #fff; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 14px; align-items: baseline; padding: 12px 0; border-bottom: 1px dashed currentColor; }
+.row:first-of-type { border-top: 1px dashed currentColor; }
+.row span { min-width: 0; }
+.row b { font-weight: 500; font-size: clamp(18px, 1.9vw, 24px); white-space: nowrap; letter-spacing: -.03em; }
+.row em { grid-column: 1 / -1; font-style: normal; font-size: 12px; color: var(--grey); }
+.fine { margin: 16px 0 0; padding: 10px 12px; border: 1px solid var(--red); color: var(--red); font-size: 13px; }
+.price .bar { margin-top: 20px; }
+.fmts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-bottom: 16px; }
+.fmt { border: 1px solid rgba(255,255,255,.55); padding: 12px; min-width: 0; }
+.fmt b { display: block; font-weight: 500; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 6px; }
+.fmt p { margin: 0; font-size: 12.5px; line-height: 1.5; }
+.rate { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 14px; padding: 12px 0; border-top: 1px dashed rgba(255,255,255,.7); border-bottom: 1px dashed rgba(255,255,255,.7); }
+.rate b { font-weight: 300; font-size: clamp(30px, 3.4vw, 46px); letter-spacing: -.05em; }
+.pack { margin-top: 18px; background: var(--frame); color: var(--card); padding: 18px clamp(14px, 2vw, 22px) 20px; position: relative; }
+.pack .ph { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 4px 14px; margin-bottom: 10px; }
+.pack h4 { font-weight: 400; font-size: clamp(20px, 2.2vw, 28px); letter-spacing: -.04em; margin: 0; }
+.pack .sum { font-weight: 500; font-size: clamp(24px, 2.6vw, 34px); letter-spacing: -.05em; }
+.pack ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
+.pack li { font-size: 13px; padding-left: 18px; position: relative; }
+.pack li::before { content: "—"; position: absolute; left: 0; color: var(--red); }
+.pack .sign { position: absolute; right: 12px; top: -26px; font-size: 52px; color: #fff; transform: rotate(-6deg); }
+.price.red .q { margin: 16px 0 0; font-size: 13px; }
+
+/* contact */
+.contact { background: var(--frame); color: var(--card); padding: clamp(22px, 3.4vw, 48px); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 24px 40px; align-items: end; }
+.contact h2 { color: var(--card); }
+.contact .sign { color: var(--card); font-size: clamp(34px, 3.8vw, 56px); display: block; margin: 6px 0 0 8%; transform: rotate(-4deg); }
+.links { display: grid; gap: 8px; }
+.links a { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; border: 1px solid #5d5c57; padding: 12px 14px; text-decoration: none; min-width: 0; }
+.links a b { font-weight: 400; font-size: clamp(16px, 1.6vw, 20px); overflow-wrap: anywhere; }
+.links a:hover { background: var(--red); border-color: var(--red); }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 18px 36px; }
+
+/* project page */
+.pv { position: fixed; inset: 0; z-index: 50; background: var(--paper); overflow-y: auto; overscroll-behavior: contain; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.pv-bar { position: sticky; top: 0; z-index: 2; background: var(--frame); color: var(--card); }
+.pv-bar .wrap { display: flex; align-items: center; gap: 8px; height: 54px; }
+.pv-bar .tiny { margin-right: auto; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.ib { width: 38px; height: 38px; border: 1px solid #77756f; background: transparent; color: var(--card); cursor: pointer; display: grid; place-items: center; flex: none; }
+.ib:hover { background: var(--red); border-color: var(--red); }
+.ib svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+.pv-head { padding-block: clamp(28px, 4vw, 52px) 24px; display: grid; gap: 10px; position: relative; }
+.pv-head h1 { font-weight: 400; font-size: clamp(38px, 6vw, 84px); line-height: .98; letter-spacing: -.05em; margin: 0; max-width: 18ch; text-wrap: balance; }
+.pv-head .sign-ru { font-size: clamp(26px, 3vw, 38px); }
+.pv-meta { display: flex; flex-wrap: wrap; gap: 4px 20px; color: var(--grey); }
+.reels { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 14px; margin-bottom: 22px; scroll-snap-type: x mandatory; }
+.reel { flex: none; width: min(280px, 72vw); scroll-snap-align: start; margin: 0; background: var(--frame); padding: 8px; color: var(--card); }
+.reel.land { width: min(560px, 88vw); }
+.reel video { width: 100%; aspect-ratio: 9/16; object-fit: cover; background: #111; }
+.reel.land video { aspect-ratio: 16/9; }
+.reel figcaption { padding-top: 6px; display: flex; justify-content: space-between; }
+.shots { columns: 3 250px; column-gap: 12px; padding-bottom: 50px; }
+.shots img { width: 100%; margin-bottom: 12px; break-inside: avoid; background: var(--frame); padding: 6px; cursor: zoom-in; }
+.pv-next { border-top: 1px solid var(--line); padding-block: 22px 48px; display: flex; justify-content: space-between; gap: 16px; }
+.pv-next button { background: none; border: 0; cursor: pointer; text-align: left; padding: 0; display: grid; gap: 6px; max-width: 46%; }
+.pv-next button:last-child { text-align: right; margin-left: auto; }
+.pv-next b { font-weight: 400; font-size: clamp(16px, 2vw, 24px); letter-spacing: -.03em; }
+.pv-next button:hover b { color: var(--red); }
+.zoom { position: fixed; inset: 0; z-index: 60; background: rgba(38,38,36,.96); display: grid; place-items: center; padding: max(16px, env(safe-area-inset-top, 0px)) var(--gr) max(16px, env(safe-area-inset-bottom, 0px)) var(--gl); cursor: zoom-out; }
+.zoom img { max-height: 100%; max-width: 100%; object-fit: contain; }
+
+@media (max-width: 960px) {
+  .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 0; }
+  .hero .paper { grid-column: 1 / -1; }
+  .hero .photo { aspect-ratio: 3/4; }
+  .duo, .prices, .about, .contact { grid-template-columns: minmax(0, 1fr); }
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 12px; }
+  .about .pics { min-height: 380px; }
+}
+@media (max-width: 640px) {
+  .top nav { display: none; }
+  .top .tab { margin-left: auto; }
+  .hero .red { min-height: 260px; }
+  .hero .polaroid { width: 80%; right: -6px; }
+  .svc { grid-template-columns: minmax(0, 1fr); }
+  .svc .photo-sm { max-width: 260px; }
+  .fmts { grid-template-columns: minmax(0, 1fr); }
+  .film { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .card h3 { font-size: 15px; }
+  .card .meta { flex-direction: column; gap: 0; }
+  .about .kv div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .feat { columns: 2; column-gap: 8px; } .feat a { margin-bottom: 8px; padding: 5px; } .feat a span { left: 10px; bottom: 10px; font-size: 10px; }
+  .shots { columns: 2; column-gap: 8px; } .shots img { margin-bottom: 8px; padding: 4px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero .photo img, .hero .polaroid, .hero .red .rec::before { animation: none; }
+  .card .pic, .card .pic img { transition: none; }
+}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">content ma</a>
+    <nav aria-label="Разделы">
+      <a class="tab" href="#work">(проекты)</a>
+      <a class="tab" href="#about">(обо мне)</a>
+      <a class="tab" href="#prices">(прайс)</a>
+      <a class="tab" href="#contact">(контакты)</a>
+    </nav>
+    <a class="tab" href="https://t.me/bycontentma" target="_blank" rel="noopener" style="background:var(--red);border-color:var(--red);color:#fff">(написать)</a>
+  </div>
+</header>
+
+<main id="top" class="wrap">
+  <div class="frame">
+    <div class="frame-in hero">
+      <div class="paper">
+        <div class="tabs"><span class="tab lc">(reels)</span><span class="tab lc">(фото)</span><span class="tab lc">(видео)</span><span class="tab lc">(монтаж)</span></div>
+        <h1>Content<br>ma</h1>
+        <p class="paren">(контент-креатор, москва)</p>
+        <p class="lede">Контент-креатор из мск, но если надо, могу приехать и прилететь куда угодно во имя контента.</p>
+        <div class="btns">
+          <a class="bar" href="#work">Смотреть портфолио</a>
+          <a class="bar ghost" href="https://instagram.com/bycontentma" target="_blank" rel="noopener">@bycontentma</a>
+        </div>
+      </div>
+      <div class="photo"><img class="bw" src="media/me7.jpg" alt="Виктория у старой двери" style="object-position:42% 60%"></div>
+      <div class="red">
+        <div class="polaroid"><img src="media/me2.jpg" alt="Виктория у граффити" style="object-position:40% 62%"><span class="sign">by content ma</span></div>
+        <p><span class="tiny rec">rec · москва · контент</span><br>reels, фото и видео для брендов, личных блогов и праздников.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="frame" id="services">
+    <div class="frame-in duo">
+      <div class="statblock">
+        <span class="sign wide">content &amp; art</span>
+        <div><b>2020</b><span class="tiny">снимаю с этого года</span></div>
+        <div><b>1000+</b><span class="tiny">reels и фото</span></div>
+        <div><b>300+</b><span class="tiny">съёмок и проектов</span></div>
+        <div><b>16</b><span class="tiny">сфер, от моды до свадеб</span></div>
+      </div>
+      <div class="svc">
+        <ul class="roles" id="roles">
+          <li><a href="#work" data-c="brand"><b>Reels</b><span class="tiny muted">для брендов</span></a></li>
+          <li><a href="#work" data-c="life"><b>Фото</b><span class="tiny muted">a7 iv · плёнка</span></a></li>
+          <li><a href="#work" data-c="brand"><b>Видео</b><span class="tiny muted">съёмка + монтаж</span></a></li>
+          <li><a href="#work" data-c="wed"><b>Свадьбы</b><span class="tiny muted">роспись · love story</span></a></li>
+          <li><a href="#work" data-c="event"><b>Праздники</b><span class="tiny muted">открытия · дни рождения</span></a></li>
+        </ul>
+        <div class="photo-sm"><img class="bw" src="media/me6.jpg" alt="" loading="lazy" style="object-position:48% 50%"><span class="sign">reels &amp; art</span></div>
+        <p class="note">Live content для брендов, lifestyle, love story, свадьбы и праздники. Своя концепция или ваше ТЗ.</p>
+      </div>
+    </div>
+  </div>
+
+  <section id="work">
+    <div class="head"><h2>Проекты</h2><span class="sign">my clients</span></div>
+    <div class="subhead"><span class="tab lc">(фото)</span><span class="tiny muted">лучшие кадры · нажмите, чтобы открыть съёмку</span></div>
+    <div class="grid" id="feat"></div>
+    <div class="subhead"><span class="tab lc">(reels)</span><span class="tiny muted">съёмка и монтаж · играют без звука</span></div>
+    <div class="grid" id="reels-grid"></div>
+    <div class="more"><button class="bar" id="all-toggle" type="button" aria-expanded="false" aria-controls="all">Все проекты</button></div>
+    <div id="all" hidden>
+      <div class="subhead"><span class="tab lc">(все проекты)</span><span class="tiny muted">2025 — 2026 · новые сверху</span></div>
+      <div class="filters" id="filters" role="group" aria-label="Фильтр по типу съёмки"></div>
+      <div class="grid" id="grid"></div>
+      <div class="more"><button class="bar ghost" id="more" type="button">Показать ещё</button></div>
+    </div>
+  </section>
+
+  <section id="about" class="frame" style="margin-top:clamp(56px,7vw,96px)">
+    <div class="about">
+      <div>
+        <h2>Обо мне</h2>
+        <span class="sign">the creator</span>
+        <p>Работаю со своими креативными концепциями и по ТЗ: от идеи и съёмки до готового монтажа.</p>
+        <dl class="kv">
+          <div><dt>что делаю</dt><dd class="tags"><span>контент</span><span>фото</span><span>видео</span><span>reels</span><span>монтаж</span><span>бэкстейдж</span><span>плёнка</span></dd></div>
+          <div><dt>техника</dt><dd>Sony A7 IV, iPhone 18 Pro, плёночный Olympus mju II</dd></div>
+          <div><dt>сферы</dt><dd class="tags"><span>мода</span><span>косметика</span><span>спорт</span><span>ювелирка</span><span>животные</span><span>рестораны</span><span>строительство</span><span>медиа</span><span>авто</span><span>бытовая химия</span><span>товары для дома</span><span>медицина</span><span>обучение</span><span>lifestyle</span><span class="new">свадьбы</span><span class="new">праздники</span></dd></div>
+        </dl>
+      </div>
+      <div class="pics">
+        <img class="main" src="media/f15.jpg" alt="Невеста бежит по залу с люстрой" style="object-position:50% 55%">
+        <div class="polaroid"><img src="media/f19.jpg" alt="" style="object-position:50% 40%"><span class="sign" style="right:10px;bottom:4px">by content ma</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="prices">
+    <div class="head"><h2>Прайс</h2><span class="tiny muted">условия сотрудничества</span></div>
+    <div class="frame" style="margin-top:0">
+      <div class="frame-in prices">
+        <div class="price paper">
+          <h3>Контент и live-съёмка</h3>
+          <span class="bracket">[ для брендов и личных блогов ]</span>
+          <div class="row"><span>Съёмочный час по ТЗ</span><b>4 000 ₽</b></div>
+          <div class="row"><span>Час камеры</span><b>5 000 ₽</b></div>
+          <div class="row"><span>Работа с материалом</span><b>отдельно</b><em>Оплачивается почасово, отдельно от съёмки.</em></div>
+          <div class="row"><span>Один reels</span><b>от 1 800 ₽</b><em>Итог зависит от хронометража.</em></div>
+          <p class="fine">1 800 ₽ это не базовая цена за любой reels, а нижняя граница. Финальная стоимость зависит от длины ролика.</p>
+          <a class="bar" href="https://t.me/bycontentma" target="_blank" rel="noopener">Обсудить съёмку</a>
+        </div>
+        <div class="price red">
+          <h3>Свадьбы и праздники</h3>
+          <span class="bracket">[ event creator ]</span>
+          <div class="fmts">
+            <div class="fmt"><b>Фото + reels</b><p>Качественные фотографии на Sony A7, параллельно живой контент на телефон для reels и сторис.</p></div>
+            <div class="fmt"><b>Видеосъёмка</b><p>Полноценное видео на Sony A7. Фото отдельно не делаются, при необходимости можно взять стоп-кадры из видео.</p></div>
+            <div class="fmt"><b>Только reels</b><p>Видеоконтент на телефон для ваших соцсетей.</p></div>
+          </div>
+          <div class="rate"><span class="tiny">стоимость работы, любой формат</span><b>9 000 ₽ / час</b></div>
+          <div class="pack">
+            <span class="sign">wedding day</span>
+            <div class="ph"><h4>Полный свадебный день</h4><span class="sum">85 000 ₽</span></div>
+            <ul>
+              <li>до 10 часов съёмки</li>
+              <li>консультация и помощь с планированием тайминга</li>
+              <li>авторская обработка всех удачных фотографий, от 500 фото</li>
+              <li>небольшой анонс фотографий в течение нескольких дней после свадьбы</li>
+              <li>срок готовности материала до 1 месяца</li>
+              <li>дополнительный час 9 000 ₽</li>
+            </ul>
+          </div>
+          <p class="q">Сохраню ваши эмоции и важные моменты. Если есть вопросы, обязательно задавайте.</p>
+          <a class="bar" href="https://t.me/bycontentma" target="_blank" rel="noopener">Забронировать дату</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="frame" style="margin-top:clamp(56px,7vw,96px)">
+    <div class="contact">
+      <div><h2>Давайте снимать</h2><span class="sign">I was created to create</span></div>
+      <div class="links">
+        <a href="https://t.me/bycontentmamsk" target="_blank" rel="noopener"><span class="tiny">(тг-канал)</span><b>t.me/bycontentmamsk</b></a>
+        <a href="https://instagram.com/bycontentma" target="_blank" rel="noopener"><span class="tiny">(инстаграм)</span><b>bycontentma</b></a>
+        <a href="https://t.me/bycontentma" target="_blank" rel="noopener"><span class="tiny">(телеграм)</span><b>@bycontentma</b></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap tiny muted"><span>content ma · Виктория · москва</span><span>© 2026</span></div></footer>
+
+<div class="pv" id="pv" role="dialog" aria-modal="true" aria-labelledby="pv-title" hidden>
+  <div class="pv-bar"><div class="wrap">
+    <span class="tiny" id="pv-crumb"></span>
+    <button class="ib" id="pv-prev" type="button" aria-label="Предыдущий проект"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button class="ib" id="pv-nextb" type="button" aria-label="Следующий проект"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+    <button class="ib" id="pv-close" type="button" aria-label="Закрыть проект"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div></div>
+  <div class="wrap">
+    <div class="pv-head">
+      <span class="tiny muted" id="pv-cat"></span>
+      <h1 id="pv-title"></h1>
+      <span class="sign-ru" id="pv-sub"></span>
+      <div class="pv-meta tiny" id="pv-meta"></div>
+    </div>
+    <div class="reels" id="pv-reels"></div>
+    <div class="shots" id="pv-shots"></div>
+    <div class="pv-next" id="pv-foot"></div>
+  </div>
+</div>
+<div class="zoom" id="zoom" hidden><img alt="" id="zoom-img"></div>
+
+<script>
+const PROJECTS = [{"id":375,"t":"Роспись и love story","s":"","c":"wed","d":"2026-10-13","g":"sony a7","p":["p375_0","p375_1","p375_2","p375_3","p375_4","p375_5","p375_6","p375_7","p375_8","p375_9"],"v":[],"cv":"p375_1"},{"id":365,"t":"Роспись, love story","s":"","c":"wed","d":"2026-09-23","g":"sony a7","p":["p365_0","p365_1","p365_2","p365_3","p365_4","p365_5","p365_6","p365_7","p365_8","p365_9"],"v":[],"cv":"p365_1"},{"id":355,"t":"Love story","s":"","c":"wed","d":"2026-09-13","g":"sony a7","p":["p355_0","p355_1","p355_2","p355_3","p355_4","p355_5","p355_6","p355_7","p355_8","p355_9"],"v":[],"cv":"p355_0"},{"id":347,"t":"Съёмка с детьми","s":"","c":"kids","d":"2026-09-03","g":"sony a7","p":["p347_0","p347_1","p347_2","p347_3","p347_4","p347_5","p347_6","p347_7"],"v":[],"cv":"p347_0"},{"id":342,"t":"Роспись, love story","s":"reels","c":"wed","d":"2026-08-31","g":"reels : iphone 16 pro · съемка & монтаж","p":["p342_0"],"v":[["342_0",14,0],["342_1",31,0],["342_2",41,0],["342_3",6,0]],"cv":"c342_1"},{"id":337,"t":"Live content для бренда","s":"фэшн","c":"brand","d":"2026-08-29","g":"контент: iphone 16 pro","p":["p337_0","p337_1","p337_2","p337_3","p337_4"],"v":[],"cv":"p337_0"},{"id":333,"t":"Live content для бренда","s":"пилатес-студия","c":"brand","d":"2026-08-27","g":"видео & монтаж : sony a 7","p":[],"v":[["333_0",32,0],["333_1",28,0],["333_2",27,0]],"cv":"c333_0"},{"id":332,"t":"Live content для бренда","s":"летняя веранда","c":"brand","d":"2026-08-27","g":"монтаж iphone 16 pro","p":[],"v":[["332_0",34,0]],"cv":"c332_0"},{"id":331,"t":"Live content для бренда","s":"теннисный корт","c":"brand","d":"2026-08-27","g":"монтаж iphone 16 pro","p":[],"v":[["331_0",20,0]],"cv":"c331_0"},{"id":326,"t":"Live content для бренда","s":"кафе","c":"brand","d":"2026-08-27","g":"фото & reels: iphone 16 pro","p":["p326_0","p326_1","p326_2","p326_3"],"v":[["326_0",6,0]],"cv":"c326_0"},{"id":317,"t":"Открытие барбершопа Turon","s":"","c":"event","d":"2026-08-27","g":"фото: sony a 7 · reels съемка & монтаж : iphone 16 pro","p":["p317_0","p317_1","p317_2","p317_3","p317_4","p317_5","p317_6"],"v":[["317_0",19,0]],"cv":"c317_0"},{"id":316,"t":"Live content для бренда","s":"бьюти","c":"brand","d":"2026-08-27","g":"съемка & монтаж: iphone 16 pro","p":[],"v":[["316_0",39,0]],"cv":"c316_0"},{"id":310,"t":"Why Not Sushi","s":"live content","c":"brand","d":"2026-08-27","g":"фото & видео: sony a7","p":["p310_0","p310_1","p310_2","p310_3"],"v":[["310_0",24,0],["310_1",13,0]],"cv":"p310_2"},{"id":300,"t":"Lifestyle","s":"","c":"life","d":"2026-08-27","g":"фото: sony a7","p":["p300_0","p300_1","p300_2","p300_3","p300_4","p300_5","p300_6","p300_7","p300_8","p300_9"],"v":[],"cv":"p300_1"},{"id":296,"t":"Свадебная съёмка","s":"плёнка + reels","c":"wed","d":"2026-08-27","g":"reels: iphone 16 pro · пленочные фото: olympus mju 2","p":["p296_0","p296_1"],"v":[["296_0",38,0]],"cv":"p296_0"},{"id":293,"t":"Свадебная съёмка","s":"плёнка + reels","c":"wed","d":"2026-08-27","g":"reels: iphone 16 pro · пленочные фото: olympus mju 2","p":["p293_0"],"v":[],"cv":"p293_0"},{"id":287,"t":"Love story","s":"","c":"wed","d":"2026-08-27","g":"фото sony a7","p":["p287_0","p287_1","p287_2","p287_3","p287_4","p287_5"],"v":[],"cv":"p287_0"},{"id":277,"t":"Утро жениха и невесты, роспись, love story и свадебный ужин","s":"","c":"wed","d":"2026-08-27","g":"фото sony a7 · видео бэк iphone 16 pro","p":["p277_0","p277_1","p277_2","p277_3","p277_4","p277_5","p277_6","p277_7","p277_8"],"v":[["277_0",19,1]],"cv":"p277_4"},{"id":276,"t":"Бэкстейдж SM · ZARINA","s":"","c":"back","d":"2026-06-10","g":"sony a6300","p":[],"v":[["276_0",20,0]],"cv":"c276_0"},{"id":273,"t":"Smash Point","s":"съёмка","c":"brand","d":"2026-06-02","g":"sony a6300","p":[],"v":[["273_0",13,0],["273_1",7,0]],"cv":"c273_0"},{"id":266,"t":"Lifestyle","s":"","c":"life","d":"2026-05-27","g":"sony a6300 & iphone 16 pro","p":["p266_0","p266_1","p266_2","p266_3","p266_4","p266_5"],"v":[["266_0",40,0]],"cv":"p266_3"},{"id":256,"t":"Love story","s":"","c":"wed","d":"2026-05-27","g":"sony a6300","p":["p256_0","p256_1","p256_2","p256_3","p256_4","p256_5","p256_6","p256_7","p256_8","p256_9"],"v":[],"cv":"p256_1"},{"id":255,"t":"Бэкстейдж","s":"","c":"back","d":"2026-05-26","g":"sony a6300 & nikon · съемка и монтаж","p":[],"v":[["255_0",25,0]],"cv":"c255_0"},{"id":245,"t":"Lifestyle","s":"","c":"life","d":"2026-05-25","g":"lifestyle · iphone 16 pro","p":["p245_0","p245_1","p245_2","p245_3","p245_4","p245_5","p245_6","p245_7","p245_8"],"v":[["245_0",10,1]],"cv":"p245_1"},{"id":226,"t":"Утро жениха и невесты","s":"Паша и Даша","c":"wed","d":"2026-05-04","g":"sony а6300 · рилс iphone 16 pro","p":["p226_0","p226_1","p226_2","p226_3","p226_4","p226_5","p226_6","p226_7","p226_8","p226_9","p236_0","p236_1","p236_2","p236_3","p236_4","p236_5","p236_6","p236_7"],"v":[],"cv":"p226_3"},{"id":218,"t":"День рождения","s":"","c":"event","d":"2026-04-27","g":"съемка a6300","p":["p218_0","p218_1","p218_2","p218_3","p218_4","p218_5","p218_6","p218_7"],"v":[],"cv":"p218_1"},{"id":217,"t":"Lifestyle","s":"","c":"life","d":"2026-04-27","g":"sony a6300 · съемка & монтаж","p":[],"v":[["217_0",28,0]],"cv":"c217_0"},{"id":216,"t":"Sara Fernández Horse Riding","s":"live content","c":"brand","d":"2026-04-21","g":"монтаж","p":[],"v":[["216_0",23,0]],"cv":"c216_0"},{"id":215,"t":"Lifestyle","s":"","c":"life","d":"2026-04-08","g":"съёмка & монтаж · цифра","p":[],"v":[["215_0",32,1]],"cv":"c215_0"},{"id":198,"t":"(REF)","s":"показ и афтепати","c":"event","d":"2026-04-07","g":"цифра & iphone 16 pro · цифра & iphone 16pro","p":["p198_0","p198_1","p198_2","p198_3","p198_4","p198_5","p198_6","p198_7","p198_8","p198_9","p208_0","p208_1","p208_2","p208_3","p208_4","p208_5","p208_6"],"v":[],"cv":"p198_4"},{"id":197,"t":"Съёмка с детьми","s":"","c":"kids","d":"2026-04-07","g":"съёмка & монтаж · iphone 16pro","p":[],"v":[["197_0",30,0]],"cv":"c197_0"},{"id":190,"t":"Lifestyle","s":"","c":"life","d":"2026-04-07","g":"📷iphone 16pro","p":["p190_0","p190_1","p190_2","p190_3","p190_4","p190_5"],"v":[],"cv":"p190_3"},{"id":189,"t":"Lifestyle","s":"","c":"life","d":"2026-04-07","g":"съёмка & монтаж · цифра","p":[],"v":[["189_0",29,1]],"cv":"c189_0"},{"id":188,"t":"Live content для бренда","s":"ресторан","c":"brand","d":"2026-03-22","g":"монтаж iphone 16pro","p":[],"v":[["188_0",10,0]],"cv":"c188_0"},{"id":187,"t":"Lifestyle","s":"","c":"life","d":"2026-03-22","g":"iphone 16 pro","p":[],"v":[["187_0",18,0]],"cv":"c187_0"},{"id":186,"t":"Lifestyle","s":"","c":"life","d":"2026-03-18","g":"монтаж","p":[],"v":[["186_0",14,0]],"cv":"c186_0"},{"id":184,"t":"Lifestyle","s":"","c":"life","d":"2026-03-18","g":"монтаж","p":[],"v":[["184_0",19,0],["184_1",15,0]],"cv":"c184_1"},{"id":183,"t":"Lifestyle","s":"","c":"life","d":"2026-03-17","g":"iphone 16pro","p":[],"v":[["183_0",34,0]],"cv":"c183_0"},{"id":182,"t":"Live content для бренда","s":"пилатес-студия","c":"brand","d":"2026-03-04","g":"iphone 16 pro","p":[],"v":[["182_0",27,0]],"cv":"c182_0"},{"id":181,"t":"Бэкстейдж","s":"","c":"back","d":"2026-03-04","g":"iphone 16 pro","p":[],"v":[["181_0",25,0]],"cv":"c181_0"},{"id":180,"t":"Live content для бренда","s":"одежда","c":"brand","d":"2026-02-05","g":"iphone 16 pro","p":[],"v":[["180_0",33,0]],"cv":"c180_0"},{"id":179,"t":"Lifestyle","s":"","c":"life","d":"2026-02-05","g":"съемка & монтаж · iphone 16 pro","p":[],"v":[["179_0",20,0]],"cv":"c179_0"},{"id":177,"t":"Live content для бренда","s":"BORK","c":"brand","d":"2026-02-05","g":"монтаж","p":[],"v":[["177_0",21,0]],"cv":"c177_0"},{"id":168,"t":"Lifestyle","s":"","c":"life","d":"2026-01-12","g":"iphone 16 pro","p":["p168_0","p168_1","p168_2","p168_3","p168_4","p168_5","p168_6","p168_7"],"v":[["168_0",27,0]],"cv":"p168_2"},{"id":167,"t":"Live content для бренда","s":"ресторан","c":"brand","d":"2025-12-11","g":"sony a6300","p":[],"v":[["167_0",23,0]],"cv":"c167_0"},{"id":158,"t":"Lifestyle","s":"спорт","c":"life","d":"2025-11-01","g":"sony a6300","p":["p158_0","p158_1","p158_2","p158_3","p158_4","p158_5","p158_6","p158_7","p158_8"],"v":[],"cv":"p158_5"},{"id":152,"t":"Роспись, love story","s":"","c":"wed","d":"2025-10-21","g":"sony a6300","p":["p152_0","p152_1","p152_2","p152_3","p152_4"],"v":[["152_0",38,0]],"cv":"p152_3"},{"id":144,"t":"Lifestyle","s":"","c":"life","d":"2025-10-14","g":"снято на iphone 16 pro","p":["p144_0","p144_1","p144_2","p144_3","p144_4","p144_5","p144_6","p144_7"],"v":[],"cv":"p144_1"},{"id":143,"t":"Megustro","s":"live content","c":"brand","d":"2025-10-07","g":"даже мемы стильные снимаю🔥 · 📷","p":[],"v":[["143_0",31,0]],"cv":"c143_0"},{"id":139,"t":"Lifestyle","s":"монтаж","c":"life","d":"2025-09-07","g":"монтаж @bycontentma 💅🏼","p":[],"v":[["139_0",23,0]],"cv":"c139_0"},{"id":133,"t":"Lifestyle","s":"","c":"life","d":"2025-09-07","g":"iphone 16🎬","p":["p133_0","p133_1","p133_2","p133_3","p133_4"],"v":[["133_0",35,0]],"cv":"p133_1"},{"id":123,"t":"Lifestyle","s":"","c":"life","d":"2025-08-29","g":"sony a6.300","p":["p123_0","p123_1","p123_2","p123_3","p123_4","p123_5","p123_6","p123_7","p123_8","p123_9"],"v":[],"cv":"p123_2"},{"id":120,"t":"Lifestyle","s":"море","c":"life","d":"2025-08-16","g":"съемка на iphone 16","p":[],"v":[["120_0",13,0],["120_1",10,0],["120_2",7,0]],"cv":"c120_0"},{"id":113,"t":"Lifestyle","s":"","c":"life","d":"2025-08-16","g":"sony a 6.300","p":["p113_0","p113_1","p113_2","p113_3","p113_4","p113_5","p113_6"],"v":[],"cv":"p113_0"},{"id":112,"t":"Lifestyle","s":"","c":"life","d":"2025-08-16","g":"sony a6.300","p":[],"v":[["112_0",18,0]],"cv":"c112_0"},{"id":110,"t":"День рождения","s":"","c":"event","d":"2025-05-27","g":"съемка и монтаж iphone","p":[],"v":[["110_0",25,0]],"cv":"c110_0"},{"id":108,"t":"Miu Miu unpacking","s":"live content","c":"brand","d":"2025-05-25","g":"монтаж 📲","p":[],"v":[["108_0",15,0],["108_1",7,0]],"cv":"c108_1"},{"id":101,"t":"Lifestyle","s":"спорт","c":"life","d":"2025-05-23","g":"лайф на айфон","p":["p101_0"],"v":[["101_0",3,0],["101_1",4,0],["101_2",3,0]],"cv":"c101_0"},{"id":94,"t":"Lifestyle","s":"","c":"life","d":"2025-05-23","g":"sony a6.300","p":["p94_0","p94_1","p94_2","p94_3","p94_4","p94_5","p94_6"],"v":[],"cv":"p94_1"},{"id":93,"t":"Lifestyle","s":"","c":"life","d":"2025-05-23","g":"фильм на 📲","p":[],"v":[["93_0",35,0]],"cv":"c93_0"},{"id":83,"t":"Lifestyle","s":"","c":"life","d":"2025-05-13","g":"sony 6.300","p":["p83_0","p83_1","p83_2","p83_3","p83_4","p83_5","p83_6","p83_7","p83_8","p83_9"],"v":[],"cv":"p83_1"},{"id":77,"t":"Live content для бренда","s":"спорт","c":"brand","d":"2025-04-24","g":"sport lifestyle контент 📸","p":[],"v":[["77_0",4,0],["77_1",12,0]],"cv":"c77_1"},{"id":76,"t":"Live content для бренда","s":"спорт","c":"brand","d":"2025-04-24","g":"lifestyle reels контент 📸","p":[],"v":[["76_0",13,0]],"cv":"c76_0"},{"id":75,"t":"EGGspresso","s":"live content","c":"brand","d":"2025-04-24","g":"reels-формат 📸","p":[],"v":[["75_0",14,0]],"cv":"c75_0"},{"id":66,"t":"День рождения","s":"birthday queen","c":"event","d":"2025-04-24","g":"творческая праздничная съёмка📸 · sony 6.300🎬","p":["p66_0","p66_1","p66_2","p66_3","p66_4","p66_5","p66_6","p66_7"],"v":[["66_0",8,0],["79_0",9,0]],"cv":"p66_1"},{"id":65,"t":"Live content для бренда","s":"украшения","c":"brand","d":"2025-02-10","g":"📷: sony a6.300","p":[],"v":[["65_0",9,0]],"cv":"c65_0"},{"id":56,"t":"Lifestyle","s":"","c":"life","d":"2025-02-10","g":"📷: sony a6.300","p":["p56_0","p56_1","p56_2","p56_3","p56_4","p56_5","p56_6","p56_7","p56_8"],"v":[],"cv":"p56_0"}];
+const CATS = { all: "Все", wed: "Свадьбы и love story", brand: "Live content для брендов", life: "Lifestyle", event: "Ивенты и праздники", back: "Бэкстейдж", kids: "Съёмка с детьми" };
+const $ = (s) => document.getElementById(s);
+const img = (k) => `media/${k}.jpg`;
+const fmtDate = (d) => d.split("-").reverse().join(".");
+const tc = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+const esc = (s) => s.replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const counts = (p) => [p.p.length && `фото ${p.p.length}`, p.v.length && `видео ${p.v.length}`].filter(Boolean);
+
+let cat = "all", shown = 12;
+function renderFilters() {
+  $("filters").innerHTML = Object.entries(CATS).map(([k, v]) => {
+    const n = k === "all" ? PROJECTS.length : PROJECTS.filter((p) => p.c === k).length;
+    return n ? `<button class="tab" type="button" data-c="${k}" aria-pressed="${k === cat}">(${v.toLowerCase()})<sup>${n}</sup></button>` : "";
+  }).join("");
+}
+const list = () => cat === "all" ? PROJECTS : PROJECTS.filter((p) => p.c === cat);
+// the 17 hand-picked shots for the home page: [file, project]
+const FEATURED = [[10,375],[13,365],[15,355],[24,226],[12,375],[19,296],[17,347],[22,277],[14,365],[20,293],[25,226],[11,375],[23,277],[16,355],[21,287],[26,226],[18,277]];
+$("feat").innerHTML = FEATURED.map(([f, id]) => {
+  const p = PROJECTS.find((x) => x.id === id);
+  return `
+    <a class="card" href="#project-${id}" data-id="${id}">
+      <div class="pic"><img src="media/f${f}.jpg" alt="" loading="lazy"></div>
+      <div class="meta tiny muted"><span>№${id} · ${fmtDate(p.d)}</span><span>${counts(p).join(" · ")}</span></div>
+      <h3>${esc(p.t)}</h3>
+      ${p.s ? `<span class="sub">${esc(p.s)}</span>` : ""}
+    </a>`;
+}).join("");
+$("feat").addEventListener("click", (e) => { const a = e.target.closest("a[data-id]"); if (!a) return; e.preventDefault(); openProject(+a.dataset.id); });
+const REELS = PROJECTS.filter((p) => p.v.length);
+let reelsShown = 9;
+function renderReels() {
+  $("reels-grid").innerHTML = REELS.slice(0, reelsShown).map((p) => cardHTML(p, true)).join("");
+  $("reels-grid").querySelectorAll("video[data-src]").forEach((v) => cardIO && cardIO.observe(v));
+}
+$("reels-grid").addEventListener("click", (e) => { const a = e.target.closest(".card"); if (!a) return; e.preventDefault(); openProject(+a.dataset.id); });
+$("all-toggle").addEventListener("click", () => {
+  const open = $("all").hidden;
+  $("all").hidden = !open; $("all-toggle").setAttribute("aria-expanded", open);
+  $("all-toggle").textContent = open ? "Скрыть все проекты" : "Все проекты";
+  if (open) { renderGrid(); $("all").scrollIntoView({ behavior: "smooth", block: "start" }); }
+});
+function cardHTML(p, reel) {
+  const vk = p.cv[0] === "c" ? p.cv.slice(1) : (reel && p.v.length ? p.v[0][0] : null);
+  const media = vk ? `<video data-src="media/v${vk}.mp4" poster="media/c${vk}.jpg" muted loop playsinline preload="none" aria-hidden="true"></video><span class="play">reels</span>` : `<img src="${img(p.cv)}" alt="" loading="lazy">`;
+  return `
+    <a class="card" href="#project-${p.id}" data-id="${p.id}">
+      <div class="pic">${media}</div>
+      <div class="meta tiny muted"><span>№${p.id} · ${fmtDate(p.d)}</span><span>${counts(p).join(" · ")}</span></div>
+      <h3>${esc(p.t)}</h3>
+      ${p.s ? `<span class="sub">${esc(p.s)}</span>` : ""}
+    </a>`;
+}
+function renderGrid() {
+  const L = list();
+  $("grid").innerHTML = L.slice(0, shown).map((p) => cardHTML(p, false)).join("");
+  $("more").hidden = shown >= L.length;
+  $("grid").querySelectorAll("video[data-src]").forEach((v) => cardIO && cardIO.observe(v));
+}
+// card covers that come from reels play silently while on screen
+const calm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const cardIO = !calm && "IntersectionObserver" in window ? new IntersectionObserver((es) => es.forEach(({ target: v, isIntersecting }) => {
+  if (isIntersecting) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); } else v.pause();
+}), { rootMargin: "120px" }) : null;
+function setCat(c) { cat = c; shown = 12; renderFilters(); renderGrid(); if ($("all").hidden) $("all-toggle").click(); }
+$("filters").addEventListener("click", (e) => { const b = e.target.closest(".tab"); if (b) setCat(b.dataset.c); });
+$("roles").addEventListener("click", (e) => { const a = e.target.closest("a[data-c]"); if (a) setCat(a.dataset.c); });
+$("more").addEventListener("click", () => { shown += 12; renderGrid(); });
+$("grid").addEventListener("click", (e) => { const a = e.target.closest(".card"); if (!a) return; e.preventDefault(); openProject(+a.dataset.id); });
+
+let current = null, lastFocus = null;
+function neighbours(id) {
+  const L = list().some((p) => p.id === id) ? list() : PROJECTS;
+  const i = L.findIndex((p) => p.id === id);
+  return [L[(i - 1 + L.length) % L.length], L[(i + 1) % L.length]];
+}
+function openProject(id) {
+  const p = PROJECTS.find((x) => x.id === id); if (!p) return;
+  if ($("pv").hidden) lastFocus = document.activeElement;
+  current = p;
+  $("pv-crumb").textContent = `№${p.id} · ${fmtDate(p.d)}`;
+  $("pv-cat").textContent = `(${CATS[p.c].toLowerCase()})`;
+  $("pv-title").textContent = p.t;
+  $("pv-sub").textContent = p.s; $("pv-sub").hidden = !p.s;
+  $("pv-meta").innerHTML = [fmtDate(p.d), ...counts(p), p.g && esc(p.g.toLowerCase())].filter(Boolean).map((s) => `<span>${s}</span>`).join("");
+  $("pv-reels").hidden = !p.v.length;
+  $("pv-reels").innerHTML = p.v.map(([k, d, land]) => `
+    <figure class="reel ${land ? "land" : ""}">
+      <video src="media/v${k}.mp4" poster="media/c${k}.jpg" controls playsinline preload="none"></video>
+      <figcaption class="tiny"><span>(reels)</span><span>${tc(d)}</span></figcaption>
+    </figure>`).join("");
+  $("pv-shots").innerHTML = p.p.map((k) => `<img src="${img(k)}" alt="" loading="lazy" width="600" height="800">`).join("");
+  const [prev, next] = neighbours(id);
+  $("pv-foot").innerHTML = `
+    <button type="button" data-id="${prev.id}"><span class="tiny muted">← предыдущий</span><b>${esc(prev.t)}</b></button>
+    <button type="button" data-id="${next.id}"><span class="tiny muted">следующий →</span><b>${esc(next.t)}</b></button>`;
+  $("pv").hidden = false; $("pv").scrollTop = 0;
+  document.body.style.overflow = "hidden";
+  history.replaceState(null, "", `#project-${id}`);
+  $("pv-close").focus({ preventScroll: true });
+}
+function closeProject() {
+  $("pv").querySelectorAll("video").forEach((v) => v.pause());
+  $("pv").hidden = true; document.body.style.overflow = ""; current = null;
+  history.replaceState(null, "", "#work");
+  if (lastFocus) lastFocus.focus({ preventScroll: true });
+}
+$("pv-close").addEventListener("click", closeProject);
+$("pv-prev").addEventListener("click", () => openProject(neighbours(current.id)[0].id));
+$("pv-nextb").addEventListener("click", () => openProject(neighbours(current.id)[1].id));
+$("pv-foot").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) openProject(+b.dataset.id); });
+$("pv-reels").addEventListener("play", (e) => { $("pv-reels").querySelectorAll("video").forEach((v) => { if (v !== e.target) v.pause(); }); }, true);
+$("pv-shots").addEventListener("click", (e) => { if (e.target.tagName !== "IMG") return; $("zoom-img").src = e.target.src; $("zoom").hidden = false; });
+$("zoom").addEventListener("click", () => { $("zoom").hidden = true; });
+document.addEventListener("keydown", (e) => {
+  if (!$("zoom").hidden) { if (e.key === "Escape") $("zoom").hidden = true; return; }
+  if (!current) return;
+  if (e.key === "Escape") closeProject();
+  if (e.target.tagName === "VIDEO") return;
+  if (e.key === "ArrowRight") openProject(neighbours(current.id)[1].id);
+  if (e.key === "ArrowLeft") openProject(neighbours(current.id)[0].id);
+});
+
+renderFilters(); renderReels();
+const m = location.hash.match(/^#project-(\d+)$/);
+if (m) openProject(+m[1]);
+</script>
