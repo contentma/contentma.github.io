@@ -216,7 +216,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 .reel.land video { aspect-ratio: 16/9; }
 .reel figcaption { padding-top: 6px; display: flex; justify-content: space-between; }
 .shots { columns: 3 250px; column-gap: 12px; padding-bottom: 50px; }
-.shots img { width: 100%; margin-bottom: 12px; break-inside: avoid; background: var(--frame); padding: 6px; cursor: zoom-in; }
+.shots img { width: 100%; height: auto; margin-bottom: 12px; break-inside: avoid; background: var(--frame); padding: 6px; cursor: zoom-in; }
 .pv-next { border-top: 1px solid var(--line); padding-block: 22px 48px; display: flex; justify-content: space-between; gap: 16px; }
 .pv-next button { background: none; border: 0; cursor: pointer; text-align: left; padding: 0; display: grid; gap: 6px; max-width: 46%; }
 .pv-next button:last-child { text-align: right; margin-left: auto; }
@@ -515,7 +515,7 @@ function openProject(id) {
       <video src="media/v${k}.mp4" poster="media/c${k}.jpg" controls playsinline preload="none"></video>
       <figcaption class="tiny"><span>(reels)</span><span>${tc(d)}</span></figcaption>
     </figure>`).join("");
-  $("pv-shots").innerHTML = p.p.map((k) => `<img src="${img(k)}" alt="" loading="lazy" width="600" height="800">`).join("");
+  $("pv-shots").innerHTML = p.p.map((k) => `<img src="${img(k)}" alt="" loading="lazy">`).join("");
   const [prev, next] = neighbours(id);
   $("pv-foot").innerHTML = `
     <button type="button" data-id="${prev.id}"><span class="tiny muted">← предыдущий</span><b>${esc(prev.t)}</b></button>
