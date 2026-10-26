@@ -64,7 +64,8 @@ section { scroll-margin-top: calc(64px + env(safe-area-inset-top, 0px)); }
 .hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr) minmax(0, .7fr); min-height: min(78vh, 640px); }
 .hero .paper { background: var(--card); padding: 0 clamp(14px, 2vw, 26px) clamp(14px, 2vw, 22px); display: flex; flex-direction: column; min-width: 0; }
 .hero .tabs { display: flex; gap: 4px; flex-wrap: wrap; padding-top: 10px; }
-.hero h1 { font-weight: 400; font-size: clamp(54px, 7.6vw, 108px); line-height: .95; letter-spacing: -.05em; margin: clamp(28px, 5vw, 70px) 0 6px; }
+.hero .paper { container-type: inline-size; }
+.hero h1 { font-weight: 400; font-size: clamp(40px, 21cqi, 108px); line-height: .95; letter-spacing: -.05em; margin: clamp(28px, 5vw, 70px) 0 6px; }
 .hero .paren { font-size: clamp(15px, 1.6vw, 20px); margin: 0; }
 .hero .lede { margin: auto 0 18px; padding-top: 28px; font-size: 14px; line-height: 1.6; max-width: 34ch; }
 .hero .btns { display: grid; gap: 8px; }
@@ -338,8 +339,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         </dl>
       </div>
       <div class="pics">
-        <img class="main" src="media/f15.jpg" alt="Невеста бежит по залу с люстрой" style="object-position:50% 55%">
-        <div class="polaroid"><img src="media/f19.jpg" alt="" style="object-position:50% 40%"><span class="sign" style="right:10px;bottom:4px">by content ma</span></div>
+        <img class="main" src="media/f20.jpg" alt="Жених и невеста на лестнице" style="object-position:50% 30%">
+        <div class="polaroid"><img src="media/f12.jpg" alt="" style="object-position:50% 35%"><span class="sign" style="right:10px;bottom:4px">by content ma</span></div>
       </div>
     </div>
   </section>
@@ -439,12 +440,13 @@ function renderFilters() {
 }
 const list = () => cat === "all" ? PROJECTS : PROJECTS.filter((p) => p.c === cat);
 // the 17 hand-picked shots for the home page: [file, project]
+const FEAT_POS = { 21: "50% 4%", 10: "50% 45%", 20: "50% 25%", 25: "50% 30%", 24: "50% 30%" };
 const FEATURED = [[10,375],[13,365],[15,355],[24,226],[12,375],[19,296],[17,347],[22,277],[14,365],[20,293],[25,226],[11,375],[23,277],[16,355],[21,287],[26,226],[18,277]];
 $("feat").innerHTML = FEATURED.map(([f, id]) => {
   const p = PROJECTS.find((x) => x.id === id);
   return `
     <a class="card" href="#project-${id}" data-id="${id}">
-      <div class="pic"><img src="media/f${f}.jpg" alt="" loading="lazy"></div>
+      <div class="pic"><img src="media/f${f}.jpg" alt="" loading="lazy" style="object-position:${FEAT_POS[f] || "50% 35%"}"></div>
       <div class="meta tiny muted"><span>№${id} · ${fmtDate(p.d)}</span><span>${counts(p).join(" · ")}</span></div>
       <h3>${esc(p.t)}</h3>
       ${p.s ? `<span class="sub">${esc(p.s)}</span>` : ""}
