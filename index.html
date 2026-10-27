@@ -76,7 +76,7 @@ section { scroll-margin-top: calc(64px + env(safe-area-inset-top, 0px)); }
 .hero .red p { margin: 0; font-size: 13px; line-height: 1.45; }
 .polaroid { position: absolute; background: #fbfaf7; padding: 8px 8px 34px; box-shadow: 0 10px 28px rgba(0,0,0,.28); }
 .polaroid img { width: 100%; aspect-ratio: 1; object-fit: cover; }
-.polaroid .sign { position: absolute; right: 10px; bottom: 4px; font-size: 26px; white-space: nowrap; }
+.polaroid .sign { position: absolute; right: 10px; bottom: 6px; font-size: 20px; white-space: nowrap; }
 .hero .polaroid { width: 72%; top: -16px; right: -18px; transform: rotate(6deg); animation: drop .9s .5s cubic-bezier(.2,.8,.2,1) both; }
 @keyframes drop { from { transform: translateY(-24px) rotate(14deg); } }
 .hero .red .rec::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: #fff; margin-right: 7px; animation: blink 1.6s steps(1) infinite; }
@@ -91,9 +91,12 @@ section { scroll-margin-top: calc(64px + env(safe-area-inset-top, 0px)); }
 .svc { background: var(--card); padding: clamp(14px, 2vw, 24px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .8fr); gap: 18px; min-width: 0; }
 .svc .photo-sm { position: relative; }
 .svc .photo-sm img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
-.svc .photo-sm .sign { position: absolute; right: -6px; bottom: -22px; font-size: clamp(40px, 4.4vw, 60px); transform: rotate(-6deg); }
+.svc .photo-sm .sign { position: absolute; right: -6px; bottom: -18px; font-size: clamp(32px, 3.4vw, 46px); transform: rotate(-6deg); }
 .roles { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); align-self: start; }
-.roles a { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+.roles .grp { color: var(--red); padding: 14px 0 6px; border-bottom: 1px solid var(--line); }
+.roles .grp:first-child { padding-top: 4px; }
+.roles a span { font-size: 13px; line-height: 1.45; color: var(--grey); }
+.roles a { display: grid; gap: 2px; padding: 10px 0; border-bottom: 1px solid var(--line); text-decoration: none; }
 .roles a b { font-weight: 400; font-size: clamp(20px, 2.2vw, 28px); letter-spacing: -.03em; }
 .roles a:hover b { color: var(--red); }
 .svc .note { grid-column: 1 / -1; margin: 6px 0 0; font-size: 13px; max-width: 46ch; }
@@ -184,7 +187,7 @@ h2 { font-weight: 400; font-size: clamp(44px, 6.4vw, 92px); line-height: .95; le
 .pack ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; }
 .pack li { font-size: 13px; padding-left: 18px; position: relative; }
 .pack li::before { content: "—"; position: absolute; left: 0; color: var(--red); }
-.pack .sign { position: absolute; right: 12px; top: -26px; font-size: 52px; color: #fff; transform: rotate(-6deg); }
+.pack .sign { position: absolute; right: 12px; top: -20px; font-size: 34px; color: #fff; transform: rotate(-6deg); }
 .price.red .q { margin: 16px 0 0; font-size: 13px; }
 
 /* contact */
@@ -193,6 +196,7 @@ h2 { font-weight: 400; font-size: clamp(44px, 6.4vw, 92px); line-height: .95; le
 .contact .sign { color: var(--card); font-size: clamp(34px, 3.8vw, 56px); display: block; margin: 6px 0 0 8%; transform: rotate(-4deg); }
 .links { display: grid; gap: 8px; }
 .links a { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; border: 1px solid #5d5c57; padding: 12px 14px; text-decoration: none; min-width: 0; }
+.links a .tiny { white-space: nowrap; }
 .links a b { font-weight: 400; font-size: clamp(16px, 1.6vw, 20px); overflow-wrap: anywhere; }
 .links a:hover { background: var(--red); border-color: var(--red); }
 footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-block: 18px 36px; }
@@ -236,8 +240,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 @media (max-width: 640px) {
   .top nav { display: none; }
   .top .tab { margin-left: auto; }
-  .hero .red { min-height: 260px; }
-  .hero .polaroid { width: 80%; right: -6px; }
+  .hero .red { min-height: 0; gap: 16px; padding-top: 18px; }
+  .hero .polaroid { position: relative; top: auto; right: auto; width: 78%; margin: -64px 0 0 -34%; align-self: flex-start; transform: rotate(-4deg); animation: none; z-index: 2; }
   .svc { grid-template-columns: minmax(0, 1fr); }
   .svc .photo-sm { max-width: 260px; }
   .fmts { grid-template-columns: minmax(0, 1fr); }
@@ -245,6 +249,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
   .card h3 { font-size: 15px; }
   .card .meta { flex-direction: column; gap: 0; }
   .about .kv div { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .links a { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .links a .tiny { white-space: nowrap; }
+  .links a b { overflow-wrap: normal; word-break: keep-all; }
   .feat { columns: 2; column-gap: 8px; } .feat a { margin-bottom: 8px; padding: 5px; } .feat a span { left: 10px; bottom: 10px; font-size: 10px; }
   .shots { columns: 2; column-gap: 8px; } .shots img { margin-bottom: 8px; padding: 4px; }
 }
@@ -283,7 +290,7 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
       <div class="photo"><img class="bw" src="media/me7.jpg" alt="Виктория у старой двери" style="object-position:42% 60%"></div>
       <div class="red">
         <div class="polaroid"><img src="media/me2.jpg" alt="Виктория у граффити" style="object-position:40% 62%"><span class="sign">by content ma</span></div>
-        <p><span class="tiny rec">rec · москва · контент</span><br>reels, фото и видео для брендов, личных блогов и праздников.</p>
+        <p><span class="tiny rec">rec · москва · контент</span><br>Мобильный контент на телефон и съёмка на камеру: reels, фото, видео и фотосессии для брендов и личных блогов.</p>
       </div>
     </div>
   </div>
@@ -299,13 +306,15 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
       </div>
       <div class="svc">
         <ul class="roles" id="roles">
-          <li><a href="#work" data-c="brand"><b>Reels</b><span class="tiny muted">для брендов</span></a></li>
-          <li><a href="#work" data-c="life"><b>Фото</b><span class="tiny muted">a7 iv · плёнка</span></a></li>
-          <li><a href="#work" data-c="brand"><b>Видео</b><span class="tiny muted">съёмка + монтаж</span></a></li>
-          <li><a href="#work" data-c="wed"><b>Свадьбы</b><span class="tiny muted">роспись · love story</span></a></li>
-          <li><a href="#work" data-c="event"><b>Праздники</b><span class="tiny muted">открытия · дни рождения</span></a></li>
+          <li class="grp tiny">[ для брендов и личных блогов ]</li>
+          <li><a href="#work" data-c="brand"><b>Reels</b><span>контент на телефон и камеру для брендов и личных блогов</span></a></li>
+          <li><a href="#work" data-c="life"><b>Фото</b><span>на телефон, камеру и плёнку: для брендов, блогов и просто на память</span></a></li>
+          <li><a href="#work" data-c="brand"><b>Видео</b><span>съёмка на камеру и монтаж</span></a></li>
+          <li class="grp tiny">[ свадьбы и праздники ]</li>
+          <li><a href="#work" data-c="wed"><b>Свадьбы</b><span>роспись, love story, утро жениха и невесты, свадебный ужин</span></a></li>
+          <li><a href="#work" data-c="event"><b>Праздники</b><span>масштабные события, открытия и дни рождения</span></a></li>
         </ul>
-        <div class="photo-sm"><img class="bw" src="media/me6.jpg" alt="" loading="lazy" style="object-position:48% 50%"><span class="sign">reels &amp; art</span></div>
+        <div class="photo-sm"><img src="media/f22.jpg" alt="Жених и невеста на скамейке, мимо проезжает машина" loading="lazy" style="object-position:55% 45%"><span class="sign">reels &amp; art</span></div>
         <p class="note">Live content для брендов, lifestyle, love story, свадьбы и праздники. Своя концепция или ваше ТЗ.</p>
       </div>
     </div>
