@@ -244,8 +244,12 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
 @media (max-width: 640px) {
   .top nav { display: none; }
   .top .tab { margin-left: auto; }
-  .hero .red { min-height: 0; gap: 16px; padding-top: 18px; }
-  .hero .polaroid { position: relative; top: auto; right: auto; width: 62%; margin: 4px auto 6px; align-self: center; transform: rotate(-3deg); animation: none; }
+  .hero { grid-template-columns: minmax(0, 1fr); }
+  .hero .photo { aspect-ratio: 4 / 5; }
+  .hero .red { min-height: 0; gap: 18px; padding: 22px 20px 24px; }
+  .hero .red p { font-size: 14px; line-height: 1.55; }
+  .hero .polaroid .sign { left: 0; right: 0; text-align: center; font-size: 18px; }
+  .hero .polaroid { position: relative; top: auto; right: auto; width: 58%; max-width: 240px; margin: 4px auto 6px; align-self: center; transform: rotate(-3deg); animation: none; }
   .svc { grid-template-columns: minmax(0, 1fr); }
   .svc .photo-sm { max-width: 260px; }
   .fmts { grid-template-columns: minmax(0, 1fr); }
@@ -352,8 +356,8 @@ footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wr
         </dl>
       </div>
       <div class="pics">
-        <img class="main" src="media/f13.jpg" alt="Невеста в кружевной фате на пешеходном переходе" style="object-position:50% 40%">
-        <div class="polaroid"><img src="media/f11.jpg" alt="" style="object-position:50% 30%"><span class="sign" style="right:10px;bottom:4px">by content ma</span></div>
+        <img class="main" src="media/f45.jpg" alt="Жених и невеста целуются на стуле в зале" style="object-position:50% 55%">
+        <div class="polaroid"><img src="media/f26.jpg" alt="" style="object-position:45% 30%"><span class="sign" style="right:10px;bottom:4px">by content ma</span></div>
       </div>
     </div>
   </section>
